@@ -1,83 +1,135 @@
-# Setal
+<p align="center">
+  <img src="docs/icon.png" width="128" alt="Setal icon">
+</p>
 
-> *Setal* — « nettoyer, rendre propre » en wolof. Clin d'œil au mouvement
-> **Set Setal** qui a vu la jeunesse de Dakar nettoyer la ville en 1990.
+<h1 align="center">Setal</h1>
 
-Petite app macOS (SwiftUI) qui réduit la catégorie **« Données système »** de
-Réglages › Stockage sur un Mac de développeur.
+<p align="center">
+  <b>Shrink the “System Data” on your Mac — safely.</b><br>
+  A small, open-source macOS app for developers. English · Français · Español · Português
+</p>
 
-## Le cas d'origine
+<p align="center">
+  <img src="docs/screenshot.png" width="760" alt="Setal window">
+</p>
 
-Le 8 novembre 2026, « Données système » occupait **203 Go** et il ne restait
-que 34 Go libres. Ce qui la remplissait :
+> *Setal* means “to clean, to make clean” in Wolof — a nod to **Set Setal**, the
+> movement in which Dakar's youth cleaned up their city in 1990.
+> [Lire en français](README.fr.md).
 
-| Gisement | Taille | Action |
-|---|---|---|
-| Docker (`Docker.raw`, dont 21 Go de cache de build) | 47 Go | `docker system prune -af` + `docker builder prune -af`, volumes gardés |
-| Simulateurs iOS | 25 Go | `xcrun simctl erase all` |
-| Caches Gradle | 18 Go | suppression de `~/.gradle/caches` |
-| Émulateurs Android + images système | 21 Go | suppression des AVD et de `sdk/system-images` |
-| DerivedData, npm, Homebrew, caches divers | ~9 Go | suppression |
+## Why
 
-Résultat : **139 Go libres**. Setal refait ce nettoyage en quelques clics.
+On a developer Mac, **Settings › Storage › System Data** quietly grows past
+200 GB. It is not the system: it is Docker's virtual disk, iOS simulators,
+Gradle caches, Android emulators, old Xcode runtimes, `node_modules`…
 
-## Fonctionnement
+Setal was born from a real cleanup: System Data was at **203 GB** with 34 GB
+left. Docker (47 GB), iOS simulators (25 GB), Gradle (18 GB) and Android
+emulators (21 GB) were the main culprits. Afterwards: **139 GB free**.
 
-1. Au lancement, Setal **analyse** (sans rien supprimer) et affiche la taille de chaque élément.
-2. Chaque élément porte un niveau de risque :
-   - **Sûr** : cache pur, coché par défaut ;
-   - **À reconstruire** : retéléchargé ou recompilé au prochain build ;
-   - **Perte de données** : jamais coché par défaut, confirmation obligatoire.
-3. **Nettoyer** exécute les éléments cochés, affiche l'espace récupéré par
-   élément et tient un journal des commandes lancées.
+## What it cleans
 
-### Garde-fou
+**System Data tab**
 
-Setal ne supprime que dans `~/Library/…` ou un dossier caché du dossier
-personnel (`~/.gradle/…`), jamais un dossier de premier niveau et jamais un
-chemin `site-packages` (faux positifs `build` de pip). Voir
-`Sources/SetalCore/PathGuard.swift` et ses tests.
+| Area | Items |
+|---|---|
+| Docker | images, stopped containers and build cache (volumes kept) · unused volumes — Docker Desktop, OrbStack or Colima |
+| Xcode & iOS | DerivedData · DeviceSupport symbols · SwiftUI previews · simulator caches · unavailable simulators · outdated / unused simulator runtimes · simulator contents · archives |
+| Android & Flutter | Gradle caches and wrapper distributions · Android cache · emulators (AVD) · system images · pub cache |
+| Package managers | npm · Yarn Berry · pnpm · bun · Homebrew · uv · Cargo · Go modules · Maven · `~/.cache` tools |
+| Editors & IDEs | settings of outdated JetBrains / Android Studio versions · VS Code caches |
+| Apps & devices | Electron and Chrome caches · downloaded iOS updates · iPhone/iPad backups · installers in Downloads |
+| Caches & system | `~/Library/Caches` · `~/Library/Logs` · local Time Machine snapshots · Trash |
 
-### Ce que Setal ne fait pas (volontairement)
+**Projects tab** — finds regenerable build folders in your code folder:
+`node_modules`, Flutter `build` and `.dart_tool`, Gradle `build` / `.gradle` /
+`.cxx`, `Pods`, SwiftPM `.build`, Rust and Maven `target`, `.next`, `.nuxt`,
+`.turbo`, `.svelte-kit`, `.parcel-cache`, `.angular`. Projects untouched for
+30 days (configurable) are preselected.
 
-- les `node_modules`, `build`, `.dart_tool` des projets (à auditer à la main) ;
-- les runtimes de simulateur dans `/Library/Developer/CoreSimulator/Volumes` (droits admin) ;
-- `~/Library/Application Support/JetBrains` (anciennes versions d'IDE à trier).
+## Safety model
 
-## Langues
+Setal deletes things. It is built to make that boring:
 
-Français (langue source), anglais, espagnol et portugais. L'app suit la langue
-du système ; on peut aussi la changer dans **Setal › Réglages… (⌘,)**.
+- **Scan first.** Nothing is deleted until you press *Clean*. Every item shows
+  its size and what happens after deletion.
+- **Three risk levels.** *Safe* (pure cache) · *Rebuildable* (downloaded or
+  compiled again) · *Data loss* — never preselected, always confirmed.
+- **Path guard.** Deletion is only allowed inside `~/Library/…` or a hidden
+  folder of your home (`~/.gradle/…`), never a top-level folder itself. Two
+  narrow exceptions: emptying `~/.Trash` / `~/.cache`, and moving installers
+  from `~/Downloads` *to the Trash*.
+- **Your files go to the Trash.** iPhone backups and installers are moved to
+  the Trash, not deleted.
+- **Project artifacts need proof.** A `build` folder is only listed if its
+  ecosystem file sits next to it (`pubspec.yaml`, `build.gradle`…), and this
+  is checked again right before deletion. Symlinks are never followed;
+  `site-packages` is never touched.
+- **Everything is logged.** The Log window lists every command and path.
 
-Les textes sont dans `Resources/Localizable.xcstrings` (String Catalog, à
-ouvrir dans Xcode). Après avoir ajouté ou modifié un texte dans le code :
+The rules live in [`PathGuard.swift`](Sources/SetalCore/PathGuard.swift) and
+[`ProjectScanner.swift`](Sources/SetalCore/ProjectScanner.swift), and are
+covered by tests.
+
+## Install
+
+### Download
+
+Grab `Setal-vX.Y.Z.zip` from [Releases](../../releases), unzip, and move
+`Setal.app` to `/Applications`.
+
+The app is ad-hoc signed, not notarized. The first time, macOS will refuse to
+open it: right-click → **Open**, or go to **System Settings › Privacy &
+Security › Open Anyway**. Alternatively:
 
 ```bash
-./Scripts/sync-strings.sh   # ajoute les nouvelles chaînes au catalogue
+xattr -dr com.apple.quarantine /Applications/Setal.app
 ```
 
-puis traduire les nouvelles entrées dans Xcode. Pour ajouter une langue :
-l'ajouter dans le catalogue, dans `CFBundleLocalizations` (`Resources/Info.plist`),
-dans `AppLanguage` (`SettingsView.swift`) et dans la boucle `lproj` de `build-app.sh`.
+### Build from source
 
-## Construire
+Requires macOS 14+ and Xcode 15+.
 
 ```bash
-swift test                 # tests du cœur (garde-fou, parsing Docker, catalogue)
-swift run Setal            # lancer en développement
-./build-app.sh             # → build/Setal.app
-./build-app.sh --install   # → aussi dans ~/Applications
+# from a clone of this repository
+./build-app.sh --install   # builds build/Setal.app and copies it to ~/Applications
 ```
 
-Prérequis : macOS 14+, Xcode (Swift 5.10+).
+## Permissions
 
-## Structure
+Some items (iPhone backups, Trash) live in folders macOS protects. Setal shows
+**Allow…** next to them: it opens **System Settings › Privacy & Security ›
+Full Disk Access**, where you can enable Setal. Everything else works without it.
+
+When Docker is stopped, macOS may ask whether Setal can access data from other
+apps — that is Setal measuring Docker's disk image. You can decline.
+
+## Development
+
+```bash
+swift test                    # core tests: path guard, scanners, parsers, catalog
+swift run Setal               # run without bundling (texts stay in French)
+./build-app.sh                # build/Setal.app
+./Scripts/sync-strings.sh     # add new strings to the String Catalog
+```
 
 ```
-Sources/SetalCore/   logique testable : catalogue, exécution, garde-fou, shell
-Sources/Setal/       interface SwiftUI
-Tests/               tests XCTest
-Scripts/make-icon.swift  génère l'icône (vert et or du drapeau sénégalais)
+Sources/SetalCore/   testable logic: catalog, executor, path guard, scanners, shell
+Sources/Setal/       SwiftUI interface
+Resources/           Info.plist, Localizable.xcstrings (String Catalog)
+Scripts/             icon generator, string sync
 ```
 
-Pour ajouter un élément à nettoyer : une entrée dans `Catalog.swift`.
+Adding a cleanup target is usually a single entry in
+[`Catalog.swift`](Sources/SetalCore/Catalog.swift). See
+[CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Not covered (on purpose)
+
+- System-wide caches in `/Library` or `/private/var` (need admin rights).
+- Old Xcode versions in `/Applications` — delete them from Finder.
+- Mail and Messages attachments — personal data.
+
+## License
+
+[MIT](LICENSE) © 2026 Birante SY (OKEMAMY)

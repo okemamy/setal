@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        run: swift test
+      - name: Build Setal.app
+        run: ./build-app.sh
+      - name: Check every string is translated
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          d = json.load(open("Resources/Localizable.xcstrings"))
+          langs = ["en", "es", "pt"]
+          missing = [k for k, v in d["strings"].items()
+                     if k and v.get("shouldTranslate", True)
+                     and any(l not in v.get("localizations", {}) for l in langs)]
+          if missing:
+              print("Untranslated strings:", *missing, sep="\n  ")
+              sys.exit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Setal.app
+          path: build/Setal.app

@@ -1,0 +1,29 @@
+name: Bug report
+description: Something went wrong while scanning or cleaning
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: Open the Log window (Journal), click Copy and paste it here. Remove any path you consider private.
+      render: text
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "macOS 26.1"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Setal version
+      placeholder: "1.0.0"

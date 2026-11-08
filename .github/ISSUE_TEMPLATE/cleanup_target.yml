@@ -1,0 +1,24 @@
+name: New cleanup target
+description: Suggest something that fills "System Data" and that Setal should handle
+labels: [cleanup-target]
+body:
+  - type: input
+    id: path
+    attributes:
+      label: Path or command
+      placeholder: "~/Library/Caches/SomeTool or `sometool cache clean`"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is it, and how big does it get?
+    validations:
+      required: true
+  - type: textarea
+    id: consequence
+    attributes:
+      label: What happens after it is deleted?
+      description: Is it rebuilt automatically, downloaded again, or is data lost?
+    validations:
+      required: true
