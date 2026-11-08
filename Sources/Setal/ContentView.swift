@@ -17,7 +17,7 @@ struct ContentView: View {
                         Section {
                             ForEach(rows) { row in RowView(row: row) }
                         } header: {
-                            Label(category.rawValue, systemImage: category.symbol)
+                            Label(category.title, systemImage: category.symbol)
                                 .font(.headline)
                         }
                     }
@@ -39,7 +39,7 @@ struct ContentView: View {
             Button("Annuler", role: .cancel) {}
         } message: {
             Text(model.selectedDataLossRows
-                .map { "• \($0.item.title) : \($0.item.consequence)" }
+                .map { String(localized: "• \($0.item.title) : \($0.item.consequence)") }
                 .joined(separator: "\n"))
         }
     }
@@ -73,8 +73,10 @@ struct ContentView: View {
 
             if model.isBusy {
                 ProgressView().controlSize(.small)
-                Text(model.phase == .scanning ? "Analyse…" : "Nettoyage…")
-                    .foregroundStyle(.secondary)
+                Group {
+                    if model.phase == .scanning { Text("Analyse…") } else { Text("Nettoyage…") }
+                }
+                .foregroundStyle(.secondary)
             } else {
                 Text(selectionSummary).foregroundStyle(.secondary)
             }
@@ -97,8 +99,8 @@ struct ContentView: View {
 
     private var selectionSummary: String {
         let count = model.selectedRows.count
-        guard count > 0 else { return "Rien de sélectionné" }
-        return "\(count) élément(s) · environ \(Format.bytes(model.selectedTotal))"
+        guard count > 0 else { return String(localized: "Rien de sélectionné") }
+        return String(localized: "\(count) élément(s) · environ \(Format.bytes(model.selectedTotal))")
     }
 
     private func startCleaning() {
@@ -127,7 +129,7 @@ struct HeaderView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 6) {
-                    Text("Setal").font(.title.bold())
+                    Text(verbatim: "Setal").font(.title.bold())
                     Button { showInfo.toggle() } label: { Image(systemName: "info.circle") }
                         .buttonStyle(.borderless)
                         .popover(isPresented: $showInfo, arrowEdge: .bottom) { InfoView() }
@@ -144,7 +146,7 @@ struct HeaderView: View {
                 ProgressView(value: usedFraction)
                     .tint(usedFraction > 0.9 ? .red : .setalGreen)
                     .frame(width: 240)
-                if model.recoveredSinceLaunch > 0 {
+                if model.lastRunFreed != nil, model.recoveredSinceLaunch > 0 {
                     Text("+\(Format.bytes(model.recoveredSinceLaunch)) récupérés")
                         .font(.callout.weight(.semibold))
                         .foregroundStyle(Color.setalGreen)
@@ -228,7 +230,8 @@ struct RowView: View {
             }
         case .done(let freed):
             VStack(alignment: .trailing, spacing: 2) {
-                Label(freed > 0 ? "+\(Format.bytes(freed))" : "Fait", systemImage: "checkmark.circle.fill")
+                Label(freed > 0 ? "+\(Format.bytes(freed))" : String(localized: "Fait"),
+                      systemImage: "checkmark.circle.fill")
                     .foregroundStyle(Color.setalGreen)
                     .font(.callout.weight(.semibold).monospacedDigit())
                 if let size = row.size, size > 0 {
@@ -243,7 +246,7 @@ struct RowView: View {
                     .font(.callout.weight(size >= 1_000_000_000 ? .semibold : .regular).monospacedDigit())
                     .foregroundStyle(size >= 5_000_000_000 ? .primary : .secondary)
             } else {
-                Text("—").foregroundStyle(.secondary)
+                Text(verbatim: "—").foregroundStyle(.secondary)
                     .help("Taille inconnue avant nettoyage")
             }
         }

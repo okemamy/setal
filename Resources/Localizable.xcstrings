@@ -1,0 +1,2385 @@
+{
+  "sourceLanguage": "fr",
+  "strings": {
+    "": {
+      "shouldTranslate": false
+    },
+    "%@ : %lld élément(s) supprimé(s)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld item(s) deleted"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld elemento(s) eliminado(s)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld item(ns) apagado(s)"
+          }
+        }
+      }
+    },
+    "%@ : %lld élément(s) supprimé(s), %lld protégé(s) par macOS laissé(s) en place": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld item(s) deleted, %lld protected by macOS left in place"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld elemento(s) eliminado(s), %lld protegido(s) por macOS sin tocar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %lld item(ns) apagado(s), %lld protegido(s) pelo macOS mantido(s)"
+          }
+        }
+      }
+    },
+    "%@ libres sur %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ free of %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ libres de %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ livres de %@"
+          }
+        }
+      }
+    },
+    "%lld élément(s) · environ %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld item(s) · about %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld elemento(s) · unos %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld item(ns) · cerca de %@"
+          }
+        }
+      }
+    },
+    "+%@ récupérés": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%@ recovered"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%@ recuperados"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%@ recuperados"
+          }
+        }
+      }
+    },
+    "Analyser": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scan"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analisar"
+          }
+        }
+      }
+    },
+    "Analyse…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanning…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizando…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analisando…"
+          }
+        }
+      }
+    },
+    "Anciennes versions et téléchargements de Homebrew.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Old Homebrew versions and downloads."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versiones antiguas y descargas de Homebrew."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versões antigas e downloads do Homebrew."
+          }
+        }
+      }
+    },
+    "Android & Flutter": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android & Flutter"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android y Flutter"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android e Flutter"
+          }
+        }
+      }
+    },
+    "Annuler": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Appareils liés à une version d'iOS qui n'est plus installée.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devices tied to an iOS version that is no longer installed."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivos vinculados a una versión de iOS que ya no está instalada."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivos ligados a uma versão do iOS que não está mais instalada."
+          }
+        }
+      }
+    },
+    "Apps installées et données accumulées sur chaque simulateur.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps installed and data accumulated on each simulator."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps instaladas y datos acumulados en cada simulador."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps instalados e dados acumulados em cada simulador."
+          }
+        }
+      }
+    },
+    "Archives Xcode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode archives"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivos de Xcode"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquivos do Xcode"
+          }
+        }
+      }
+    },
+    "Archives de paquets téléchargées par npm.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Package tarballs downloaded by npm."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquetes descargados por npm."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pacotes baixados pelo npm."
+          }
+        }
+      }
+    },
+    "Aucun": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguno"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum"
+          }
+        }
+      }
+    },
+    "Aucune : ils ne peuvent plus démarrer.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None: they can no longer boot."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna: ya no pueden arrancar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma: eles não conseguem mais iniciar."
+          }
+        }
+      }
+    },
+    "Aucune action pour l'instant.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No actions yet."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna acción por ahora."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma ação por enquanto."
+          }
+        }
+      }
+    },
+    "Aucune.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma."
+          }
+        }
+      }
+    },
+    "Builds archivés pour l'App Store, avec leurs dSYM.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Builds archived for the App Store, with their dSYMs."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Builds archivados para la App Store, con sus dSYM."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Builds arquivados para a App Store, com seus dSYMs."
+          }
+        }
+      }
+    },
+    "Cache Android": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android cache"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de Android"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache do Android"
+          }
+        }
+      }
+    },
+    "Cache du SDK Android.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android SDK cache."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché del SDK de Android."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache do SDK do Android."
+          }
+        }
+      }
+    },
+    "Cache npm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "npm cache"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de npm"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache do npm"
+          }
+        }
+      }
+    },
+    "Cache pub (Flutter / Dart)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pub cache (Flutter / Dart)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caché de pub (Flutter / Dart)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache do pub (Flutter / Dart)"
+          }
+        }
+      }
+    },
+    "Cache, CachedData et extensions déjà installées.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache, CachedData and already-installed extensions."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache, CachedData y extensiones ya instaladas."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache, CachedData e extensões já instaladas."
+          }
+        }
+      }
+    },
+    "Caches": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches"
+          }
+        }
+      }
+    },
+    "Caches Gradle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gradle caches"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés de Gradle"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches do Gradle"
+          }
+        }
+      }
+    },
+    "Caches VS Code": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VS Code caches"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés de VS Code"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches do VS Code"
+          }
+        }
+      }
+    },
+    "Caches des applications": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App caches"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cachés de las apps"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches dos apps"
+          }
+        }
+      }
+    },
+    "Certains éléments sélectionnés suppriment des données": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some selected items delete data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algunos elementos seleccionados eliminan datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alguns itens selecionados apagam dados"
+          }
+        }
+      }
+    },
+    "Chaque projet Flutter devra refaire « flutter pub get ».": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Each Flutter project will need to run “flutter pub get” again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada proyecto Flutter tendrá que volver a ejecutar «flutter pub get»."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada projeto Flutter precisará rodar “flutter pub get” de novo."
+          }
+        }
+      }
+    },
+    "Chemin refusé par le garde-fou : %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Path rejected by the safety guard: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruta rechazada por la protección: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caminho recusado pela proteção: %@"
+          }
+        }
+      }
+    },
+    "Contenu des simulateurs iOS": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS simulator contents"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenido de los simuladores iOS"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conteúdo dos simuladores iOS"
+          }
+        }
+      }
+    },
+    "Copier": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar"
+          }
+        }
+      }
+    },
+    "Copies que macOS garde sur le disque interne entre deux sauvegardes.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copies macOS keeps on the internal disk between backups."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copias que macOS guarda en el disco interno entre copias de seguridad."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cópias que o macOS mantém no disco interno entre backups."
+          }
+        }
+      }
+    },
+    "DerivedData Xcode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode DerivedData"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DerivedData de Xcode"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DerivedData do Xcode"
+          }
+        }
+      }
+    },
+    "Disques des appareils virtuels.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Virtual device disks."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discos de los dispositivos virtuales."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discos dos dispositivos virtuais."
+          }
+        }
+      }
+    },
+    "Docker": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker"
+          }
+        }
+      }
+    },
+    "Docker Desktop n'a pas démarré dans les 3 minutes.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker Desktop did not start within 3 minutes."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker Desktop no arrancó en 3 minutos."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Docker Desktop não iniciou em 3 minutos."
+          }
+        }
+      }
+    },
+    "Docker est prêt.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker is ready."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker está listo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docker está pronto."
+          }
+        }
+      }
+    },
+    "Démarrage de Docker Desktop…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starting Docker Desktop…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciando Docker Desktop…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciando o Docker Desktop…"
+          }
+        }
+      }
+    },
+    "Dépendances et transformations téléchargées par Gradle.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dependencies and transforms downloaded by Gradle."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dependencias y transformaciones descargadas por Gradle."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dependências e transformações baixadas pelo Gradle."
+          }
+        }
+      }
+    },
+    "Fait": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito"
+          }
+        }
+      }
+    },
+    "Fermer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
+          }
+        }
+      }
+    },
+    "Gestionnaires de paquets": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Package managers"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestores de paquetes"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerenciadores de pacotes"
+          }
+        }
+      }
+    },
+    "Homebrew": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homebrew"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homebrew"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homebrew"
+          }
+        }
+      }
+    },
+    "Il faudra recréer les émulateurs dans Android Studio (Device Manager).": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You will need to recreate emulators in Android Studio (Device Manager)."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Habrá que recrear los emuladores en Android Studio (Device Manager)."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Será preciso recriar os emuladores no Android Studio (Device Manager)."
+          }
+        }
+      }
+    },
+    "Images système Android": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android system images"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imágenes del sistema Android"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imagens de sistema Android"
+          }
+        }
+      }
+    },
+    "Images utilisées pour créer les émulateurs.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Images used to create emulators."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imágenes usadas para crear emuladores."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imagens usadas para criar emuladores."
+          }
+        }
+      }
+    },
+    "Images, conteneurs arrêtés et cache de build": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Images, stopped containers and build cache"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imágenes, contenedores detenidos y caché de compilación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imagens, contêineres parados e cache de build"
+          }
+        }
+      }
+    },
+    "Impossible de supprimer %@ : %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not delete %@: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo eliminar %@: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível apagar %@: %@"
+          }
+        }
+      }
+    },
+    "Instantanés locaux Time Machine": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local Time Machine snapshots"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instantáneas locales de Time Machine"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instantâneos locais do Time Machine"
+          }
+        }
+      }
+    },
+    "Journal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registro"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registro"
+          }
+        }
+      }
+    },
+    "Journaux": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registros"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logs"
+          }
+        }
+      }
+    },
+    "La nouvelle langue s'applique au redémarrage.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The new language applies after a restart."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El nuevo idioma se aplica al reiniciar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O novo idioma é aplicado ao reiniciar."
+          }
+        }
+      }
+    },
+    "Langue": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        }
+      }
+    },
+    "Langue du système": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System language"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma del sistema"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma do sistema"
+          }
+        }
+      }
+    },
+    "Le SDK Manager les retélécharge à la création d'un émulateur.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The SDK Manager downloads them again when you create an emulator."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El SDK Manager las vuelve a descargar al crear un emulador."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O SDK Manager baixa de novo ao criar um emulador."
+          }
+        }
+      }
+    },
+    "Le disque virtuel Docker.raw grossit sans jamais rendre l'espace tout seul.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Docker.raw virtual disk keeps growing and never gives space back on its own."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El disco virtual Docker.raw crece sin devolver nunca el espacio por sí solo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O disco virtual Docker.raw cresce e nunca devolve o espaço sozinho."
+          }
+        }
+      }
+    },
+    "Le premier build Android ou Flutter retélécharge les dépendances.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The first Android or Flutter build downloads dependencies again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La primera compilación Android o Flutter vuelve a descargar las dependencias."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O primeiro build Android ou Flutter baixa as dependências de novo."
+          }
+        }
+      }
+    },
+    "Le prochain build Xcode ou Flutter iOS est plus long.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The next Xcode or Flutter iOS build takes longer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La próxima compilación de Xcode o Flutter iOS tarda más."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O próximo build do Xcode ou Flutter iOS demora mais."
+          }
+        }
+      }
+    },
+    "Les anciens journaux de diagnostic disparaissent.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Old diagnostic logs are removed."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los registros de diagnóstico antiguos desaparecen."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os logs de diagnóstico antigos são removidos."
+          }
+        }
+      }
+    },
+    "Les appareils restent, mais il faudra réinstaller les apps dessus.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devices stay, but you will need to reinstall apps on them."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los dispositivos se conservan, pero habrá que reinstalar las apps."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os dispositivos ficam, mas será preciso reinstalar os apps neles."
+          }
+        }
+      }
+    },
+    "Les apps reconstruisent leurs caches au besoin.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps rebuild their caches as needed."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las apps reconstruyen sus cachés cuando lo necesitan."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os apps recriam seus caches quando necessário."
+          }
+        }
+      }
+    },
+    "Les données des bases locales qu'ils contiennent sont perdues.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local database data stored in them is lost."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se pierden los datos de las bases locales que contienen."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os dados dos bancos locais que eles contêm são perdidos."
+          }
+        }
+      }
+    },
+    "Les prochains « npm install » retéléchargent.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The next “npm install” runs download again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los próximos «npm install» vuelven a descargar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os próximos “npm install” baixam de novo."
+          }
+        }
+      }
+    },
+    "Les sauvegardes sur le disque externe ne sont pas touchées.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backups on the external disk are not touched."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las copias en el disco externo no se tocan."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os backups no disco externo não são afetados."
+          }
+        }
+      }
+    },
+    "Les volumes (données des bases) sont gardés. Le prochain build Docker est plus long. Docker Desktop est démarré si besoin.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volumes (database data) are kept. The next Docker build takes longer. Docker Desktop is started if needed."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los volúmenes (datos de las bases) se conservan. La próxima compilación Docker tarda más. Docker Desktop se inicia si hace falta."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os volumes (dados dos bancos) são mantidos. O próximo build Docker demora mais. O Docker Desktop é iniciado se necessário."
+          }
+        }
+      }
+    },
+    "Nettoyage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cleanup"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpieza"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpeza"
+          }
+        }
+      }
+    },
+    "Nettoyage de %lld élément(s) — libre : %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cleaning %lld item(s) — free: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpiando %lld elemento(s) — libre: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpando %lld item(ns) — livre: %@"
+          }
+        }
+      }
+    },
+    "Nettoyage…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cleaning…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpiando…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpando…"
+          }
+        }
+      }
+    },
+    "Nettoyer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clean"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpiar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpar"
+          }
+        }
+      }
+    },
+    "Nettoyer quand même": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clean anyway"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpiar de todos modos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpar mesmo assim"
+          }
+        }
+      }
+    },
+    "Paquets Dart téléchargés.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Downloaded Dart packages."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquetes Dart descargados."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pacotes Dart baixados."
+          }
+        }
+      }
+    },
+    "Paquets que plus aucun projet ne référence.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Packages no project references anymore."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquetes que ya ningún proyecto usa."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pacotes que nenhum projeto usa mais."
+          }
+        }
+      }
+    },
+    "Perte de données": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data loss"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pérdida de datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perda de dados"
+          }
+        }
+      }
+    },
+    "Produits intermédiaires de compilation.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intermediate build products."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Productos intermedios de compilación."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Produtos intermediários de compilação."
+          }
+        }
+      }
+    },
+    "Redémarrer Setal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restart Setal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar Setal"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar o Setal"
+          }
+        }
+      }
+    },
+    "Rendre propre les « Données système » de ton Mac": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clean up your Mac’s “System Data”"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpia los «Datos del sistema» de tu Mac"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpe os “Dados do sistema” do seu Mac"
+          }
+        }
+      }
+    },
+    "Rien de sélectionné": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing selected"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada seleccionado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada selecionado"
+          }
+        }
+      }
+    },
+    "Réglages › Stockage peut mettre quelques minutes à afficher le nouveau chiffre.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings › Storage may take a few minutes to show the new figure."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes › Almacenamiento puede tardar unos minutos en mostrar la nueva cifra."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes › Armazenamento pode levar alguns minutos para mostrar o novo valor."
+          }
+        }
+      }
+    },
+    "Sans les dSYM, les crashs des versions publiées ne sont plus symbolisables.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Without dSYMs, crashes from released versions can no longer be symbolicated."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin los dSYM, los fallos de las versiones publicadas ya no se pueden simbolizar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem os dSYMs, os crashes das versões publicadas não podem mais ser simbolizados."
+          }
+        }
+      }
+    },
+    "Setal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal"
+          }
+        }
+      }
+    },
+    "Setal ne touche qu'à ~/Library et aux dossiers cachés de ton dossier personnel. Les éléments « Perte de données » ne sont jamais cochés par défaut et demandent une confirmation.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal only touches ~/Library and hidden folders in your home folder. “Data loss” items are never checked by default and require confirmation."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal solo toca ~/Library y las carpetas ocultas de tu carpeta personal. Los elementos «Pérdida de datos» nunca se marcan por defecto y piden confirmación."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Setal só mexe em ~/Library e nas pastas ocultas da sua pasta pessoal. Itens de “Perda de dados” nunca vêm marcados e pedem confirmação."
+          }
+        }
+      }
+    },
+    "Setal — « nettoyer » en wolof": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal — “to clean” in Wolof"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal — «limpiar» en wolof"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setal — “limpar” em wolof"
+          }
+        }
+      }
+    },
+    "Simulateurs indisponibles": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unavailable simulators"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simuladores no disponibles"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simuladores indisponíveis"
+          }
+        }
+      }
+    },
+    "Store pnpm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pnpm store"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Almacén de pnpm"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store do pnpm"
+          }
+        }
+      }
+    },
+    "Supprimé : %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deleted: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminado: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagado: %@"
+          }
+        }
+      }
+    },
+    "Système": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
+          }
+        }
+      }
+    },
+    "Sélection": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selection"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selección"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleção"
+          }
+        }
+      }
+    },
+    "Sûr": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Safe"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro"
+          }
+        }
+      }
+    },
+    "Sûrs + à reconstruire": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Safe + rebuildable"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguros + a reconstruir"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguros + a recriar"
+          }
+        }
+      }
+    },
+    "Sûrs uniquement": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Safe only"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo seguros"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Só seguros"
+          }
+        }
+      }
+    },
+    "Taille inconnue avant nettoyage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Size unknown before cleanup"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamaño desconocido antes de limpiar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamanho desconhecido antes da limpeza"
+          }
+        }
+      }
+    },
+    "Terminé — libre : %@ (+%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done — free: %@ (+%@)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminado — libre: %@ (+%@)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluído — livre: %@ (+%@)"
+          }
+        }
+      }
+    },
+    "Tout": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo"
+          }
+        }
+      }
+    },
+    "Volumes Docker inutilisés": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unused Docker volumes"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volúmenes Docker sin usar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volumes Docker não usados"
+          }
+        }
+      }
+    },
+    "Volumes qu'aucun conteneur n'utilise.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volumes no container uses."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volúmenes que ningún contenedor usa."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volumes que nenhum contêiner usa."
+          }
+        }
+      }
+    },
+    "Xcode & iOS": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode & iOS"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode e iOS"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode e iOS"
+          }
+        }
+      }
+    },
+    "absent": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "not found"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ausente"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ausente"
+          }
+        }
+      }
+    },
+    "en cours": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "running"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "en curso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "em andamento"
+          }
+        }
+      }
+    },
+    "macOS range dans « Données système » tout ce qui n'est ni une app, ni un document : caches, disque Docker, simulateurs, caches Gradle, instantanés Time Machine… Sur un Mac de développeur, cela dépasse vite 200 Go.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS files everything that is neither an app nor a document under “System Data”: caches, the Docker disk, simulators, Gradle caches, Time Machine snapshots… On a developer Mac it easily passes 200 GB."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS agrupa en «Datos del sistema» todo lo que no es ni una app ni un documento: cachés, disco de Docker, simuladores, cachés de Gradle, instantáneas de Time Machine… En un Mac de desarrollo supera fácilmente los 200 GB."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O macOS coloca em “Dados do sistema” tudo o que não é app nem documento: caches, disco do Docker, simuladores, caches do Gradle, instantâneos do Time Machine… Num Mac de desenvolvedor isso passa fácil de 200 GB."
+          }
+        }
+      }
+    },
+    "reste %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ left"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "quedan %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "restam %@"
+          }
+        }
+      }
+    },
+    "~/Library/Caches (CocoaPods, Yarn, navigateurs, etc.).": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Caches (CocoaPods, Yarn, browsers, etc.)."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Caches (CocoaPods, Yarn, navegadores, etc.)."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Caches (CocoaPods, Yarn, navegadores etc.)."
+          }
+        }
+      }
+    },
+    "~/Library/Logs.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Logs."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Logs."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "~/Library/Logs."
+          }
+        }
+      }
+    },
+    "« %@ » a échoué (code %d). %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” failed (code %d). %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "«%@» falló (código %d). %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” falhou (código %d). %@"
+          }
+        }
+      }
+    },
+    "À reconstruire": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rebuildable"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A reconstruir"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A recriar"
+          }
+        }
+      }
+    },
+    "Émulateurs Android (AVD)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Android emulators (AVD)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emuladores Android (AVD)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emuladores Android (AVD)"
+          }
+        }
+      }
+    },
+    "• %@ : %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• %@: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• %@: %@"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• %@: %@"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

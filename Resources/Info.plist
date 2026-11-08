@@ -4,6 +4,13 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>fr</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+		<string>en</string>
+		<string>es</string>
+		<string>pt</string>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>Setal</string>
 	<key>CFBundleIconFile</key>

@@ -19,6 +19,8 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/Setal"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
+xcrun xcstringstool compile Resources/Localizable.xcstrings --output-directory "$APP/Contents/Resources"
+for lang in fr en es pt; do mkdir -p "$APP/Contents/Resources/$lang.lproj"; done
 codesign --force --sign - "$APP"
 echo "✓ $APP"
 

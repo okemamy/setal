@@ -44,6 +44,22 @@ chemin `site-packages` (faux positifs `build` de pip). Voir
 - les runtimes de simulateur dans `/Library/Developer/CoreSimulator/Volumes` (droits admin) ;
 - `~/Library/Application Support/JetBrains` (anciennes versions d'IDE à trier).
 
+## Langues
+
+Français (langue source), anglais, espagnol et portugais. L'app suit la langue
+du système ; on peut aussi la changer dans **Setal › Réglages… (⌘,)**.
+
+Les textes sont dans `Resources/Localizable.xcstrings` (String Catalog, à
+ouvrir dans Xcode). Après avoir ajouté ou modifié un texte dans le code :
+
+```bash
+./Scripts/sync-strings.sh   # ajoute les nouvelles chaînes au catalogue
+```
+
+puis traduire les nouvelles entrées dans Xcode. Pour ajouter une langue :
+l'ajouter dans le catalogue, dans `CFBundleLocalizations` (`Resources/Info.plist`),
+dans `AppLanguage` (`SettingsView.swift`) et dans la boucle `lproj` de `build-app.sh`.
+
 ## Construire
 
 ```bash

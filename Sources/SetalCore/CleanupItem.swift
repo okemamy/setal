@@ -12,9 +12,9 @@ public enum Risk: Int, Sendable, Comparable, CaseIterable {
 
     public var label: String {
         switch self {
-        case .safe: "Sûr"
-        case .rebuild: "À reconstruire"
-        case .data: "Perte de données"
+        case .safe: String(localized: "Sûr")
+        case .rebuild: String(localized: "À reconstruire")
+        case .data: String(localized: "Perte de données")
         }
     }
 }
@@ -26,6 +26,17 @@ public enum Category: String, CaseIterable, Sendable {
     case packages = "Gestionnaires de paquets"
     case caches = "Caches"
     case system = "Système"
+
+    public var title: String {
+        switch self {
+        case .docker: String(localized: "Docker")
+        case .xcode: String(localized: "Xcode & iOS")
+        case .android: String(localized: "Android & Flutter")
+        case .packages: String(localized: "Gestionnaires de paquets")
+        case .caches: String(localized: "Caches")
+        case .system: String(localized: "Système")
+        }
+    }
 
     public var symbol: String {
         switch self {

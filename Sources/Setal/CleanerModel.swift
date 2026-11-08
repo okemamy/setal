@@ -105,7 +105,7 @@ final class CleanerModel: ObservableObject {
         phase = .cleaning
         refreshDisk()
         let startFree = freeBytes
-        append("Nettoyage de \(targets.count) élément(s) — libre : \(Format.bytes(startFree))")
+        append(String(localized: "Nettoyage de \(targets.count) élément(s) — libre : \(Format.bytes(startFree))"))
 
         for target in targets {
             guard let index = index(of: target.id) else { continue }
@@ -135,7 +135,7 @@ final class CleanerModel: ObservableObject {
 
         refreshDisk()
         lastRunFreed = max(0, freeBytes - startFree)
-        append("Terminé — libre : \(Format.bytes(freeBytes)) (+\(Format.bytes(lastRunFreed ?? 0)))")
+        append(String(localized: "Terminé — libre : \(Format.bytes(freeBytes)) (+\(Format.bytes(lastRunFreed ?? 0)))"))
         phase = .idle
     }
 

@@ -26,5 +26,9 @@ struct SetalApp: App {
                     .disabled(model.isBusy)
             }
         }
+
+        Settings {
+            SettingsView()
+        }
     }
 }

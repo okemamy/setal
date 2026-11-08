@@ -11,11 +11,11 @@ public enum ExecutorError: LocalizedError {
         switch self {
         case .commandFailed(let command, let status, let output):
             let tail = output.split(separator: "\n").suffix(3).joined(separator: " ")
-            return "« \(command) » a échoué (code \(status)). \(tail)"
+            return String(localized: "« \(command) » a échoué (code \(status)). \(tail)")
         case .dockerUnavailable:
-            return "Docker Desktop n'a pas démarré dans les 3 minutes."
+            return String(localized: "Docker Desktop n'a pas démarré dans les 3 minutes.")
         case .unsafePath(let path):
-            return "Chemin refusé par le garde-fou : \(path)"
+            return String(localized: "Chemin refusé par le garde-fou : \(path)")
         }
     }
 }
@@ -83,9 +83,9 @@ public enum Executor {
                 guard FileManager.default.fileExists(atPath: path) else { continue }
                 do {
                     try FileManager.default.removeItem(atPath: path)
-                    await log("Supprimé : \(path)")
+                    await log(String(localized: "Supprimé : \(path)"))
                 } catch {
-                    await log("Impossible de supprimer \(path) : \(error.localizedDescription)")
+                    await log(String(localized: "Impossible de supprimer \(path) : \(error.localizedDescription)"))
                 }
             }
         case .shell(let command):
@@ -126,8 +126,11 @@ public enum Executor {
                 skipped += 1
             }
         }
-        let note = skipped > 0 ? ", \(skipped) protégé(s) par macOS laissé(s) en place" : ""
-        await log("\(directory) : \(removed) élément(s) supprimé(s)\(note)")
+        if skipped > 0 {
+            await log(String(localized: "\(directory) : \(removed) élément(s) supprimé(s), \(skipped) protégé(s) par macOS laissé(s) en place"))
+        } else {
+            await log(String(localized: "\(directory) : \(removed) élément(s) supprimé(s)"))
+        }
     }
 
     // MARK: Docker
@@ -138,12 +141,12 @@ public enum Executor {
 
     static func ensureDocker(log: LogHandler) async throws {
         if await dockerIsRunning() { return }
-        await log("Démarrage de Docker Desktop…")
+        await log(String(localized: "Démarrage de Docker Desktop…"))
         await Shell.run("open -a Docker")
         for _ in 0..<60 {
             try await Task.sleep(nanoseconds: 3_000_000_000)
             if await dockerIsRunning() {
-                await log("Docker est prêt.")
+                await log(String(localized: "Docker est prêt."))
                 return
             }
         }
