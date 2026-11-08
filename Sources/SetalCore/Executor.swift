@@ -85,10 +85,13 @@ public enum Executor {
         return kilobytes(result.output) ?? 0
     }
 
+    /// Dernière ligne numérique de la sortie : certains outils (brew) écrivent
+    /// parfois des avertissements avant le résultat.
     static func kilobytes(_ output: String) -> Int64? {
-        let trimmed = output.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let value = Int64(trimmed) else { return nil }
-        return value * 1024
+        let value = output.split(whereSeparator: \.isNewline)
+            .compactMap { Int64($0.trimmingCharacters(in: .whitespaces)) }
+            .last
+        return value.map { $0 * 1024 }
     }
 
     // MARK: Nettoyage

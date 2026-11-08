@@ -171,3 +171,11 @@ final class ProjectScannerTests: XCTestCase {
         XCTAssertFalse(ProjectScanner.isStillArtifact("/etc/node_modules", home: home))
     }
 }
+
+final class ExecutorParsingTests: XCTestCase {
+    func testKilobytesTakesLastNumericLine() {
+        XCTAssertEqual(Executor.kilobytes("42\n"), 42 * 1024)
+        XCTAssertEqual(Executor.kilobytes("==> Auto-updating Homebrew...\n39400\n"), 39400 * 1024)
+        XCTAssertNil(Executor.kilobytes("du: no such file"))
+    }
+}

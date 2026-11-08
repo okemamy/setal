@@ -246,7 +246,9 @@ public enum Catalog {
             consequence: String(localized: "Aucune."),
             category: .packages, risk: .safe, defaultSelected: true,
             availability: "command -v pnpm",
-            probe: .shellKB("du -sk \"$(pnpm store path 2>/dev/null)\" 2>/dev/null | cut -f1"),
+            // Seuls les paquets non référencés partent : la taille du store
+            // surestimerait le gain.
+            probe: .none,
             action: .shell("pnpm store prune")
         ),
         CleanupItem(

@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Tests
         run: swift test
       - name: Build Setal.app
@@ -27,7 +27,7 @@ jobs:
               print("Untranslated strings:", *missing, sep="\n  ")
               sys.exit(1)
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: Setal.app
           path: build/Setal.app
