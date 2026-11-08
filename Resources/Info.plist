@@ -37,6 +37,8 @@
 	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -44,6 +46,6 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2026 Birante SY (OKEMAMY) — MIT</string>
+	<string>© 2026 OKEMAMY</string>
 </dict>
 </plist>

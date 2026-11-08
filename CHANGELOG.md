@@ -3,6 +3,8 @@
 ## 1.0.1 — 2026-11-08
 
 - Universal binary: runs on Intel Macs as well as Apple Silicon.
+- Signed with a Developer ID and notarized by Apple: opens without a warning.
+- Copyright: OKEMAMY.
 - Homebrew size is read reliably; pnpm no longer overstates the gain.
 
 ## 1.0.0 — 2026-11-08

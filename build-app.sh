@@ -2,6 +2,10 @@
 # Construit build/Setal.app (signature ad hoc).
 #   ./build-app.sh            → build/Setal.app
 #   ./build-app.sh --install  → copie aussi dans ~/Applications
+#
+# Signature : ad hoc par défaut. Avec SIGN_IDENTITY (par ex.
+# "Developer ID Application: Nom (TEAMID)"), signature Developer ID avec le
+# hardened runtime et un horodatage, prête pour Scripts/notarize.sh.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -25,7 +29,12 @@ xcrun xcstringstool compile Resources/Localizable.xcstrings --output-directory "
 # Le français est la langue source : pas de fichier compilé, mais le dossier
 # doit exister pour que macOS le propose.
 mkdir -p "$APP/Contents/Resources/fr.lproj"
-codesign --force --sign - "$APP"
+if [ -n "${SIGN_IDENTITY:-}" ]; then
+  codesign --force --options runtime --timestamp --sign "$SIGN_IDENTITY" "$APP"
+  codesign --verify --strict --verbose=2 "$APP"
+else
+  codesign --force --sign - "$APP"
+fi
 echo "✓ $APP"
 
 if [ "${1:-}" = "--install" ]; then

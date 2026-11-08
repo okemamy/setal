@@ -16,7 +16,7 @@
 
 > *Setal* means “to clean, to make clean” in Wolof — a nod to **Set Setal**, the
 > movement in which Dakar's youth cleaned up their city in 1990.
-> [Lire en français](README.fr.md).
+> Made by [OKEMAMY](http://okemamy.com/) · [Lire en français](README.fr.md).
 
 ## Why
 
@@ -91,13 +91,9 @@ help just as much.
 Grab `Setal-vX.Y.Z.zip` from [Releases](../../releases), unzip, and move
 `Setal.app` to `/Applications`.
 
-The app is ad-hoc signed, not notarized. The first time, macOS will refuse to
-open it: right-click → **Open**, or go to **System Settings › Privacy &
-Security › Open Anyway**. Alternatively:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/Setal.app
-```
+Releases are signed with a Developer ID and notarized by Apple, so they open
+without any warning. Universal binary: Apple Silicon and Intel, macOS 14 or
+later.
 
 ### Build from source
 
@@ -130,7 +126,9 @@ the translations in `Resources/Localizable.xcstrings`.
 ```bash
 swift test                    # core tests: path guard, scanners, parsers, catalog
 swift run Setal               # run without bundling (texts stay in French)
-./build-app.sh                # build/Setal.app
+./build-app.sh                # build/Setal.app (ad-hoc signed)
+SIGN_IDENTITY="Developer ID Application: …" ./build-app.sh
+NOTARY_PROFILE=setal ./Scripts/notarize.sh   # notarize + staple → dist/
 ./Scripts/sync-strings.sh     # add new strings to the String Catalog
 ```
 
@@ -153,4 +151,4 @@ Adding a cleanup target is usually a single entry in
 
 ## License
 
-[MIT](LICENSE) © 2026 Birante SY (OKEMAMY)
+[MIT](LICENSE) © 2026 [OKEMAMY](http://okemamy.com/)

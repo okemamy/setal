@@ -12,7 +12,7 @@
 
 > *Setal* — « nettoyer, rendre propre » en wolof. Clin d'œil au mouvement
 > **Set Setal** qui a vu la jeunesse de Dakar nettoyer la ville en 1990.
-> [Read in English](README.md).
+> Une app [OKEMAMY](http://okemamy.com/) · [Read in English](README.md).
 
 ## Pourquoi
 
@@ -72,8 +72,9 @@ Télécharger le `.zip` dans les [Releases](../../releases), ou :
 ./build-app.sh --install
 ```
 
-L'app est signée ad hoc (pas notarisée) : au premier lancement, clic droit →
-**Ouvrir**, ou **Réglages › Confidentialité et sécurité › Ouvrir quand même**.
+Les versions publiées sont signées (Developer ID) et notarisées par Apple :
+elles s'ouvrent sans alerte. App universelle Apple Silicon et Intel, macOS 14
+ou plus récent.
 
 ## Langues
 
@@ -85,4 +86,4 @@ ajouté un texte : `./Scripts/sync-strings.sh`, puis traduire dans Xcode.
 
 ## Contribuer
 
-Voir [CONTRIBUTING.md](CONTRIBUTING.md). Licence [MIT](LICENSE).
+Voir [CONTRIBUTING.md](CONTRIBUTING.md). Licence [MIT](LICENSE) © 2026 [OKEMAMY](http://okemamy.com/).
