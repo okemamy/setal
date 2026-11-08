@@ -20,7 +20,9 @@ cp "$BIN" "$APP/Contents/MacOS/Setal"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 xcrun xcstringstool compile Resources/Localizable.xcstrings --output-directory "$APP/Contents/Resources"
-for lang in fr en es pt; do mkdir -p "$APP/Contents/Resources/$lang.lproj"; done
+# Le français est la langue source : pas de fichier compilé, mais le dossier
+# doit exister pour que macOS le propose.
+mkdir -p "$APP/Contents/Resources/fr.lproj"
 codesign --force --sign - "$APP"
 echo "✓ $APP"
 

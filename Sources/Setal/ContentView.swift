@@ -166,9 +166,20 @@ struct HeaderView: View {
                     .tint(usedFraction > 0.9 ? .red : .setalGreen)
                     .frame(width: 240)
                 if model.lastRunFreed != nil, model.recoveredSinceLaunch > 0 {
-                    Text("+\(Format.bytes(model.recoveredSinceLaunch)) récupérés")
-                        .font(.callout.weight(.semibold))
-                        .foregroundStyle(Color.setalGreen)
+                    HStack(spacing: 10) {
+                        if Links.donate != nil {
+                        Button {
+                            Links.openDonate()
+                        } label: {
+                            Label("Soutenir Setal", systemImage: "heart.fill")
+                        }
+                        .buttonStyle(.link)
+                        .font(.callout)
+                        }
+                        Text("+\(Format.bytes(model.recoveredSinceLaunch)) récupérés")
+                            .font(.callout.weight(.semibold))
+                            .foregroundStyle(Color.setalGreen)
+                    }
                 }
             }
         }
@@ -190,6 +201,17 @@ struct InfoView: View {
             Text("Le swap et les fichiers temporaires du système ne disparaissent qu'au redémarrage du Mac.")
             Text("Réglages › Stockage peut mettre quelques minutes à afficher le nouveau chiffre.")
                 .foregroundStyle(.secondary)
+            if Links.donate != nil {
+                Divider()
+                Text("Setal est gratuite et open source. Si elle t'a fait gagner de la place, tu peux soutenir son développement.")
+                Button {
+                    Links.openDonate()
+                } label: {
+                    Label("Faire un don", systemImage: "heart.fill")
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.pink)
+            }
         }
         .font(.callout)
         .frame(width: 360)

@@ -19,7 +19,7 @@ jobs:
           python3 - <<'PY'
           import json, sys
           d = json.load(open("Resources/Localizable.xcstrings"))
-          langs = ["en", "es", "pt"]
+          langs = ["en", "es", "pt", "de", "it", "nl", "ru", "tr", "ar", "ja", "ko", "zh-Hans", "zh-Hant"]
           missing = [k for k, v in d["strings"].items()
                      if k and v.get("shouldTranslate", True)
                      and any(l not in v.get("localizations", {}) for l in langs)]

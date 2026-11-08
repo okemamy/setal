@@ -6,7 +6,8 @@
 
 <p align="center">
   <b>Réduire les « Données système » de ton Mac, sans risque.</b><br>
-  Petite app macOS open source pour développeurs. Français · English · Español · Português
+  Petite app macOS open source pour développeurs.<br>
+  14 langues : English · Français · Español · Português · Deutsch · Italiano · Nederlands · Русский · Türkçe · العربية · 日本語 · 한국어 · 简体中文 · 繁體中文
 </p>
 
 > *Setal* — « nettoyer, rendre propre » en wolof. Clin d'œil au mouvement
@@ -51,6 +52,18 @@ Docker (47 Go), simulateurs iOS (25 Go), Gradle (18 Go) et émulateurs Android
   avant la suppression.
 - **Journal** de chaque commande et chemin.
 
+## Soutenir Setal
+
+Setal est gratuite et open source. Si elle t'a fait gagner des gigaoctets,
+tu peux soutenir son développement :
+
+<p align="center">
+  <a href="https://paypal.me/sybirante"><img src="https://img.shields.io/badge/Faire%20un%20don-PayPal-00457C?logo=paypal&logoColor=white" alt="Faire un don avec PayPal"></a>
+</p>
+
+Une étoile sur GitHub, un bug signalé ou un nouveau cas de nettoyage
+proposé aident tout autant.
+
 ## Installer
 
 Télécharger le `.zip` dans les [Releases](../../releases), ou :
@@ -64,8 +77,10 @@ L'app est signée ad hoc (pas notarisée) : au premier lancement, clic droit →
 
 ## Langues
 
-L'app suit la langue du système ; on peut la changer dans **Setal ›
-Réglages… (⌘,)**. Textes dans `Resources/Localizable.xcstrings` ; après avoir
+14 langues : français, anglais, espagnol, portugais, allemand, italien,
+néerlandais, russe, turc, arabe, japonais, coréen, chinois simplifié et
+traditionnel. L'app suit la langue du système ; on peut la changer dans
+**Setal › Réglages… (⌘,)**. Textes dans `Resources/Localizable.xcstrings` ; après avoir
 ajouté un texte : `./Scripts/sync-strings.sh`, puis traduire dans Xcode.
 
 ## Contribuer

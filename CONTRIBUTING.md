@@ -20,18 +20,22 @@ adding a new cleanup target is usually small.
    guard in the same PR as a new target.
 3. Anything that is really the user's (backups, downloads) should go to the
    Trash (`.trashDynamic`), not be deleted.
-4. Run `./Scripts/sync-strings.sh` and add English, Spanish and Portuguese
-   translations in `Resources/Localizable.xcstrings` (Xcode's String Catalog
-   editor works well). CI fails on untranslated strings.
+4. Run `./Scripts/sync-strings.sh` and translate the new strings in
+   `Resources/Localizable.xcstrings` (Xcode's String Catalog editor works
+   well) for every language listed in `.github/workflows/ci.yml`. CI fails
+   on untranslated strings. Not fluent in all of them? Open the PR anyway
+   and say so: maintainers will complete the rest.
 5. `swift test` and `./build-app.sh`, then try the item on your Mac.
 
 ## Adding a language
 
 Add it to the String Catalog, to `CFBundleLocalizations` in
-`Resources/Info.plist`, to `AppLanguage` in `Sources/Setal/SettingsView.swift`,
-to the `lproj` loop in `build-app.sh`, and to the language list checked in
-`.github/workflows/ci.yml`. A Wolof translation by a native speaker would be
-especially welcome.
+`Resources/Info.plist`, to `AppLanguage` in `Sources/Setal/SettingsView.swift`
+and to the language list checked in `.github/workflows/ci.yml`.
+
+The current translations beyond French and English were machine-assisted:
+corrections from native speakers are very welcome. A Wolof translation would
+be especially welcome.
 
 ## Code style
 

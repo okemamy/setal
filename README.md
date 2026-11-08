@@ -6,7 +6,8 @@
 
 <p align="center">
   <b>Shrink the “System Data” on your Mac — safely.</b><br>
-  A small, open-source macOS app for developers. English · Français · Español · Português
+  A small, open-source macOS app for developers.<br>
+  English · Français · Español · Português · Deutsch · Italiano · Nederlands · Русский · Türkçe · العربية · 日本語 · 한국어 · 简体中文 · 繁體中文
 </p>
 
 <p align="center">
@@ -71,6 +72,18 @@ The rules live in [`PathGuard.swift`](Sources/SetalCore/PathGuard.swift) and
 [`ProjectScanner.swift`](Sources/SetalCore/ProjectScanner.swift), and are
 covered by tests.
 
+## Support Setal
+
+Setal is free and open source. If it saved you some gigabytes, you can
+support its development:
+
+<p align="center">
+  <a href="https://paypal.me/sybirante"><img src="https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white" alt="Donate with PayPal"></a>
+</p>
+
+Starring the repository, reporting bugs and suggesting new cleanup targets
+help just as much.
+
 ## Install
 
 ### Download
@@ -103,6 +116,14 @@ Full Disk Access**, where you can enable Setal. Everything else works without it
 
 When Docker is stopped, macOS may ask whether Setal can access data from other
 apps — that is Setal measuring Docker's disk image. You can decline.
+
+## Languages
+
+Setal follows the system language and can be switched in **Setal ›
+Settings… (⌘,)**: English, French, Spanish, Portuguese, German, Italian,
+Dutch, Russian, Turkish, Arabic (right-to-left), Japanese, Korean,
+Simplified and Traditional Chinese. Native speakers are welcome to improve
+the translations in `Resources/Localizable.xcstrings`.
 
 ## Development
 

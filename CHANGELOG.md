@@ -12,4 +12,8 @@ First public release.
   their ecosystem file; preselects inactive projects.
 - Risk levels, confirmation for data loss, path guard, Trash for user files.
 - Full Disk Access detection.
-- English, French, Spanish and Portuguese.
+- 14 languages: English, French, Spanish, Portuguese, German, Italian,
+  Dutch, Russian, Turkish, Arabic, Japanese, Korean, Simplified and
+  Traditional Chinese.
+- Donation link (PayPal) in the app menu, the info popover and after a
+  successful cleanup.
