@@ -6,8 +6,10 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 APP="build/Setal.app"
-swift build -c release
-BIN="$(swift build -c release --show-bin-path)/Setal"
+# Binaire universel : Apple Silicon et Intel.
+ARCHS=(--arch arm64 --arch x86_64)
+swift build -c release "${ARCHS[@]}"
+BIN="$(swift build -c release "${ARCHS[@]}" --show-bin-path)/Setal"
 
 if [ ! -f build/AppIcon.icns ]; then
   swift Scripts/make-icon.swift build/AppIcon.iconset
