@@ -13,7 +13,7 @@ public enum ExecutorError: LocalizedError {
             let tail = output.split(separator: "\n").suffix(3).joined(separator: " ")
             return String(localized: "« \(command) » a échoué (code \(status)). \(tail)")
         case .dockerUnavailable:
-            return String(localized: "Docker Desktop n'a pas démarré dans les 3 minutes.")
+            return String(localized: "Aucun moteur Docker n'a démarré (Docker Desktop, OrbStack ou Colima).")
         case .unsafePath(let path):
             return String(localized: "Chemin refusé par le garde-fou : \(path)")
         }
@@ -27,10 +27,23 @@ public enum Executor {
         if let check = item.availability {
             return await Shell.run(check).status == 0
         }
-        if case .paths(let paths) = item.probe {
-            return !existing(paths).isEmpty
+        switch item.probe {
+        case .paths(let paths): return !existing(paths).isEmpty
+        case .dynamic(let target): return !Finder.resolve(target).isEmpty
+        default: return true
         }
-        return true
+    }
+
+    /// Vrai si un dossier existe mais que macOS en refuse la lecture : il faut
+    /// accorder l'« Accès complet au disque » à Setal.
+    public static func needsFullDiskAccess(_ item: CleanupItem) -> Bool {
+        guard case .paths(let paths) = item.probe else { return false }
+        return existing(paths).contains { path in
+            var isDirectory: ObjCBool = false
+            guard FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory),
+                  isDirectory.boolValue else { return false }
+            return (try? FileManager.default.contentsOfDirectory(atPath: path)) == nil
+        }
     }
 
     /// Taille en octets, ou `nil` si elle ne peut pas être estimée.
@@ -48,6 +61,15 @@ public enum Executor {
                 return DockerSize.reclaimable(result.output, types: Set(types))
             }
             return fallback.isEmpty ? nil : await diskUsage(fallback)
+        case .dynamic(let target):
+            return await diskUsage(Finder.resolve(target))
+        case .simRuntimes(let selectors):
+            var dryRun = ""
+            for selector in selectors {
+                dryRun += await Shell.run("xcrun simctl runtime delete \(selector) --dry-run").output
+            }
+            let list = await Shell.run("xcrun simctl runtime list -j 2>/dev/null")
+            return SimRuntimes.total(dryRun: dryRun, listJSON: list.output)
         }
     }
 
@@ -55,7 +77,7 @@ public enum Executor {
         paths.map { PathGuard.expand($0) }.filter { FileManager.default.fileExists(atPath: $0) }
     }
 
-    static func diskUsage(_ paths: [String]) async -> Int64 {
+    public static func diskUsage(_ paths: [String]) async -> Int64 {
         let found = existing(paths)
         guard !found.isEmpty else { return 0 }
         let arguments = found.map(Shell.quote).joined(separator: " ")
@@ -78,12 +100,15 @@ public enum Executor {
                 try await removeContents(of: PathGuard.expand(directory), log: log)
             }
         case .removePaths(let paths):
-            for path in paths.map({ PathGuard.expand($0) }) {
-                guard PathGuard.isSafeToDelete(path) else { throw ExecutorError.unsafePath(path) }
-                guard FileManager.default.fileExists(atPath: path) else { continue }
+            try await remove(paths.map { PathGuard.expand($0) }, log: log)
+        case .removeDynamic(let target):
+            try await remove(Finder.resolve(target), log: log)
+        case .trashDynamic(let target):
+            for path in Finder.resolve(target) {
+                guard PathGuard.isSafeToTrash(path) else { throw ExecutorError.unsafePath(path) }
                 do {
-                    try FileManager.default.removeItem(atPath: path)
-                    await log(String(localized: "Supprimé : \(path)"))
+                    try FileManager.default.trashItem(at: URL(fileURLWithPath: path), resultingItemURL: nil)
+                    await log(String(localized: "Mis à la Corbeille : \(path)"))
                 } catch {
                     await log(String(localized: "Impossible de supprimer \(path) : \(error.localizedDescription)"))
                 }
@@ -110,8 +135,21 @@ public enum Executor {
         }
     }
 
+    static func remove(_ paths: [String], log: LogHandler) async throws {
+        for path in paths {
+            guard PathGuard.isSafeToDelete(path) else { throw ExecutorError.unsafePath(path) }
+            guard FileManager.default.fileExists(atPath: path) else { continue }
+            do {
+                try FileManager.default.removeItem(atPath: path)
+                await log(String(localized: "Supprimé : \(path)"))
+            } catch {
+                await log(String(localized: "Impossible de supprimer \(path) : \(error.localizedDescription)"))
+            }
+        }
+    }
+
     static func removeContents(of directory: String, log: LogHandler) async throws {
-        guard PathGuard.isSafeToDelete(directory) else { throw ExecutorError.unsafePath(directory) }
+        guard PathGuard.isSafeContainer(directory) else { throw ExecutorError.unsafePath(directory) }
         let fileManager = FileManager.default
         guard let children = try? fileManager.contentsOfDirectory(atPath: directory) else { return }
         var removed = 0
@@ -139,16 +177,27 @@ public enum Executor {
         await Shell.run("docker info >/dev/null 2>&1").status == 0
     }
 
+    /// Démarre le moteur Docker installé : Docker Desktop, OrbStack ou Colima.
     static func ensureDocker(log: LogHandler) async throws {
         if await dockerIsRunning() { return }
-        await log(String(localized: "Démarrage de Docker Desktop…"))
-        await Shell.run("open -a Docker")
+        if await Shell.run("open -Ra Docker").status == 0 {
+            await log(String(localized: "Démarrage de Docker Desktop…"))
+            await Shell.run("open -a Docker")
+        } else if await Shell.run("command -v orb").status == 0 {
+            await log(String(localized: "Démarrage d'OrbStack…"))
+            await Shell.run("orb start")
+        } else if await Shell.run("command -v colima").status == 0 {
+            await log(String(localized: "Démarrage de Colima…"))
+            await Shell.run("colima start")
+        } else {
+            throw ExecutorError.dockerUnavailable
+        }
         for _ in 0..<60 {
-            try await Task.sleep(nanoseconds: 3_000_000_000)
             if await dockerIsRunning() {
                 await log(String(localized: "Docker est prêt."))
                 return
             }
+            try await Task.sleep(nanoseconds: 3_000_000_000)
         }
         throw ExecutorError.dockerUnavailable
     }

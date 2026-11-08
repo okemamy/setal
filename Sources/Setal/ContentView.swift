@@ -5,27 +5,29 @@ struct ContentView: View {
     @EnvironmentObject private var model: CleanerModel
     @State private var showLog = false
     @State private var confirmDataLoss = false
+    @State private var tab: Tab = .system
+
+    enum Tab: Hashable { case system, projects }
 
     var body: some View {
         VStack(spacing: 0) {
             HeaderView()
-            Divider()
-            List {
-                ForEach(Category.allCases, id: \.self) { category in
-                    let rows = model.rows.filter { $0.item.category == category }
-                    if !rows.isEmpty {
-                        Section {
-                            ForEach(rows) { row in RowView(row: row) }
-                        } header: {
-                            Label(category.title, systemImage: category.symbol)
-                                .font(.headline)
-                        }
-                    }
-                }
+            Picker("", selection: $tab) {
+                Text("Données système").tag(Tab.system)
+                Text("Projets").tag(Tab.projects)
             }
-            .listStyle(.inset(alternatesRowBackgrounds: false))
+            .pickerStyle(.segmented)
+            .labelsHidden()
+            .frame(width: 340)
+            .padding(.bottom, 12)
             Divider()
-            footer
+            if tab == .system {
+                systemList
+                Divider()
+                footer
+            } else {
+                ProjectsView(projects: model.projects, showLog: $showLog)
+            }
         }
         .frame(minWidth: 760, minHeight: 600)
         .task { await model.scan() }
@@ -42,6 +44,23 @@ struct ContentView: View {
                 .map { String(localized: "• \($0.item.title) : \($0.item.consequence)") }
                 .joined(separator: "\n"))
         }
+    }
+
+    private var systemList: some View {
+            List {
+                ForEach(Category.allCases, id: \.self) { category in
+                    let rows = model.rows.filter { $0.item.category == category }
+                    if !rows.isEmpty {
+                        Section {
+                            ForEach(rows) { row in RowView(row: row) }
+                        } header: {
+                            Label(category.title, systemImage: category.symbol)
+                                .font(.headline)
+                        }
+                    }
+                }
+            }
+            .listStyle(.inset(alternatesRowBackgrounds: false))
     }
 
     private var footer: some View {
@@ -168,6 +187,7 @@ struct InfoView: View {
             Text("Setal — « nettoyer » en wolof").font(.headline)
             Text("macOS range dans « Données système » tout ce qui n'est ni une app, ni un document : caches, disque Docker, simulateurs, caches Gradle, instantanés Time Machine… Sur un Mac de développeur, cela dépasse vite 200 Go.")
             Text("Setal ne touche qu'à ~/Library et aux dossiers cachés de ton dossier personnel. Les éléments « Perte de données » ne sont jamais cochés par défaut et demandent une confirmation.")
+            Text("Le swap et les fichiers temporaires du système ne disparaissent qu'au redémarrage du Mac.")
             Text("Réglages › Stockage peut mettre quelques minutes à afficher le nouveau chiffre.")
                 .foregroundStyle(.secondary)
         }
@@ -239,7 +259,15 @@ struct RowView: View {
                 }
             }
         case .ready, .failed:
-            if !row.available {
+            if row.blocked {
+                VStack(alignment: .trailing, spacing: 2) {
+                    Button("Autoriser…") { FullDiskAccess.openSettings() }
+                        .controlSize(.small)
+                    Text("Accès complet au disque requis")
+                        .font(.caption2).foregroundStyle(.secondary)
+                        .multilineTextAlignment(.trailing)
+                }
+            } else if !row.available {
                 Text("absent").font(.callout).foregroundStyle(.secondary)
             } else if let size = row.size {
                 Text(Format.bytes(size))
@@ -316,4 +344,11 @@ extension Color {
     /// Vert et or : couleurs du drapeau sénégalais.
     static let setalGreen = Color(red: 0.0, green: 0.52, blue: 0.25)
     static let setalGold = Color(red: 0.99, green: 0.76, blue: 0.0)
+}
+
+enum FullDiskAccess {
+    static func openSettings() {
+        let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles")!
+        NSWorkspace.shared.open(url)
+    }
 }

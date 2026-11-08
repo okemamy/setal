@@ -24,6 +24,8 @@ public enum Category: String, CaseIterable, Sendable {
     case xcode = "Xcode & iOS"
     case android = "Android & Flutter"
     case packages = "Gestionnaires de paquets"
+    case ide = "Éditeurs & IDE"
+    case apps = "Apps & appareils"
     case caches = "Caches"
     case system = "Système"
 
@@ -33,6 +35,8 @@ public enum Category: String, CaseIterable, Sendable {
         case .xcode: String(localized: "Xcode & iOS")
         case .android: String(localized: "Android & Flutter")
         case .packages: String(localized: "Gestionnaires de paquets")
+        case .ide: String(localized: "Éditeurs & IDE")
+        case .apps: String(localized: "Apps & appareils")
         case .caches: String(localized: "Caches")
         case .system: String(localized: "Système")
         }
@@ -44,6 +48,8 @@ public enum Category: String, CaseIterable, Sendable {
         case .xcode: "hammer"
         case .android: "iphone.gen1"
         case .packages: "archivebox"
+        case .ide: "chevron.left.forwardslash.chevron.right"
+        case .apps: "ipad.and.iphone"
         case .caches: "tray.full"
         case .system: "clock.arrow.circlepath"
         }
@@ -59,6 +65,10 @@ public enum SizeProbe: Sendable {
     /// Espace récupérable selon `docker system df` pour ces types ; si Docker
     /// est arrêté, taille des chemins de repli.
     case docker(types: [String], fallback: [String])
+    /// Taille cumulée des chemins trouvés à l'exécution.
+    case dynamic(DynamicTarget)
+    /// Taille des runtimes de simulateur que `simctl runtime delete <sélecteur>` supprimerait.
+    case simRuntimes([String])
 }
 
 public indirect enum CleanupAction: Sendable {
@@ -69,6 +79,10 @@ public indirect enum CleanupAction: Sendable {
     case shell(String)
     /// Commandes docker ; démarre Docker Desktop si nécessaire.
     case docker([String])
+    /// Supprime les chemins trouvés à l'exécution.
+    case removeDynamic(DynamicTarget)
+    /// Met à la Corbeille (récupérable) les chemins trouvés à l'exécution.
+    case trashDynamic(DynamicTarget)
     case sequence([CleanupAction])
 }
 
@@ -102,14 +116,18 @@ public struct CleanupItem: Identifiable, Sendable {
         self.action = action
     }
 
-    /// Chemins que l'action peut supprimer, pour vérification par le garde-fou.
-    public var deletablePaths: [String] { Self.paths(in: action) }
+    /// Chemins que l'action supprime, pour vérification par le garde-fou.
+    public var deletablePaths: [String] { Self.paths(in: action, contents: false) }
 
-    private static func paths(in action: CleanupAction) -> [String] {
+    /// Dossiers dont l'action vide le contenu.
+    public var containerPaths: [String] { Self.paths(in: action, contents: true) }
+
+    private static func paths(in action: CleanupAction, contents: Bool) -> [String] {
         switch action {
-        case .removeContents(let paths), .removePaths(let paths): paths
-        case .shell, .docker: []
-        case .sequence(let actions): actions.flatMap(paths(in:))
+        case .removeContents(let paths): contents ? paths : []
+        case .removePaths(let paths): contents ? [] : paths
+        case .shell, .docker, .removeDynamic, .trashDynamic: []
+        case .sequence(let actions): actions.flatMap { Self.paths(in: $0, contents: contents) }
         }
     }
 }

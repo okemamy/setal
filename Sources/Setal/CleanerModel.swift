@@ -14,11 +14,13 @@ struct Row: Identifiable {
     let item: CleanupItem
     var selected: Bool
     var available = true
+    /// macOS refuse la lecture : il faut l'« Accès complet au disque ».
+    var blocked = false
     var size: Int64?
     var state: RowState = .pending
 
     var id: String { item.id }
-    var isActionable: Bool { available }
+    var isActionable: Bool { available && !blocked }
 }
 
 struct LogLine: Identifiable {
@@ -39,10 +41,18 @@ final class CleanerModel: ObservableObject {
     @Published var log: [LogLine] = []
     @Published var lastRunFreed: Int64?
 
+    let projects = ProjectsModel()
+
     init() {
         rows = Catalog.items.map { Row(item: $0, selected: $0.defaultSelected) }
         refreshDisk()
         freeAtLaunch = freeBytes
+        projects.onLog = { [weak self] line in self?.append(line) }
+        projects.onCleaned = { [weak self] freed in
+            guard let self else { return }
+            self.refreshDisk()
+            self.lastRunFreed = freed
+        }
     }
 
     var isBusy: Bool { phase != .idle }
@@ -76,21 +86,23 @@ final class CleanerModel: ObservableObject {
         phase = .scanning
         for index in rows.indices { rows[index].state = .measuring }
 
-        await withTaskGroup(of: (String, Bool, Int64?).self) { group in
+        await withTaskGroup(of: (String, Bool, Bool, Int64?).self) { group in
             for row in rows {
                 let item = row.item
                 group.addTask {
                     let available = await Executor.isAvailable(item)
-                    let size = available ? await Executor.measure(item) : nil
-                    return (item.id, available, size)
+                    let blocked = available && Executor.needsFullDiskAccess(item)
+                    let size = available && !blocked ? await Executor.measure(item) : nil
+                    return (item.id, available, blocked, size)
                 }
             }
-            for await (id, available, size) in group {
+            for await (id, available, blocked, size) in group {
                 guard let index = index(of: id) else { continue }
                 rows[index].available = available
+                rows[index].blocked = blocked
                 rows[index].size = size
                 rows[index].state = .ready
-                if !available { rows[index].selected = false }
+                if !rows[index].isActionable { rows[index].selected = false }
             }
         }
 
